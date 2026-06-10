@@ -274,6 +274,7 @@ python3 ~/ARX/das_finger_controller_mcu/tools/finger_test.py --port /dev/ttyUSB0
 ## 常见注意事项
 
 - 运行机械臂前先确认 CAN 设备已经正确启动，否则 Python 或 ROS 节点无法连接机械臂。
+- 联合调试过程中，偶发 ARX 左臂电机掉线现象。解决办法是杀死 can 通信进程后重启双臂 can 通信，如若没有效果，请插拔控制盒（can 6）后重新配置。
 - 运行夹爪前先确认 udev 规则已经加载，并检查 `/dev/ttyFingerLeft`、`/dev/ttyFingerRight` 是否存在。
 - `test.py` 和 `test2.py` 当前包含硬编码路径，换机器或换用户名后需要同步修改。
 - 夹爪相机要求 USB 3.0 接口，设备名变化时需要重新配置 udev。
