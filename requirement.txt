@@ -1,0 +1,10 @@
+# Dependencies for running:
+# cd /home/arx/ARX/ARX_X5/py/arx_x5_python && python test.py
+#
+# Local code used by test.py is already in this workspace:
+# - ARX_X5/py/arx_x5_python/bimanual
+# - finger_sdk_python/gen_con_sdk_python_release-master
+
+numpy>=1.19.0
+pyserial>=3.5
+opencv-python>=4.5.0

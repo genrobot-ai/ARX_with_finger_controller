@@ -1,0 +1,14 @@
+kth71_example\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/croutine.c
+kth71_example\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
+kth71_example\croutine.o: D:\software\keli5\ARM\ARMCC\Bin\..\include\stddef.h
+kth71_example\croutine.o: D:\software\keli5\ARM\ARMCC\Bin\..\include\stdint.h
+kth71_example\croutine.o: ../Core/Inc/FreeRTOSConfig.h
+kth71_example\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
+kth71_example\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
+kth71_example\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h
+kth71_example\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h
+kth71_example\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
+kth71_example\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
+kth71_example\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+kth71_example\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h
+kth71_example\croutine.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
