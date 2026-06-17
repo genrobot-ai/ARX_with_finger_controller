@@ -8,7 +8,6 @@
 - 通过 ROS/ROS2 启动机械臂控制节点和遥操作流程。
 - 通过串口和相机控制 DAS 灵巧夹爪，读取编码器、触觉和图像数据。
 - 将双机械臂和左右夹爪组合运行，完成联调演示。
-- 编译、烧录和调试 DAS 夹爪控制器 MCU 固件。
 
 ## 目录结构
 
@@ -26,16 +25,12 @@ ARX/
 │   ├── py/arx_x5_python/              # 机械臂 Python SDK 与示例
 │   └── 旧版-readme/                   # 旧版说明文档和 PDF 手册
 ├── finger_sdk_python/
-│   └── gen_con_sdk_python_release-master/
-│       ├── README_CN.md               # 灵巧夹爪中文文档
-│       ├── start_finger.py            # 夹爪启动脚本
-│       ├── scripts/                   # 串口、相机、协议和系统封装
-│       └── config/99-usb-serial.rules # udev 设备名配置模板
-└── das_finger_controller_mcu/
-    ├── USAGE.md                       # MCU 使用文档
-    ├── Core/                          # STM32 主程序源码
-    ├── MDK-ARM/                       # Keil 工程
-    └── tools/                         # 固件测试工具
+    └── gen_con_sdk_python_release-master/
+        ├── README_CN.md               # 灵巧夹爪中文文档
+        ├── start_finger.py            # 夹爪启动脚本
+        ├── scripts/                   # 串口、相机、协议和系统封装
+        └── config/99-usb-serial.rules # udev 设备名配置模板
+
 ```
 
 ## 环境准备
@@ -239,37 +234,6 @@ colcon build
 
 VR 使用 Meta Quest3 作为操作端，详细网络配置、按键映射和启动流程见 `ARX_X5/ARX_VR_SDK/readme.md`。
 
-## MCU 固件
-
-DAS 夹爪控制器固件位于：
-
-```text
-das_finger_controller_mcu/
-```
-
-硬件和通信概览：
-
-- MCU：STM32F103C8T6
-- 电机：LK MG4005
-- 上位机通信：USART1，921600 8N1
-- 控制协议：以 `das\r\n` 作为帧头和帧尾
-- 电机通信：CAN1，1 Mbps
-- 主循环频率：50 Hz
-
-编译与烧录：
-
-1. 使用 Keil µVision 5 打开 `das_finger_controller_mcu/MDK-ARM/KTH71_Example.uvprojx`。
-2. 确认 Target 为 `STM32F103C8`。
-3. 执行 `Project -> Build Target`。
-4. 连接 ST-Link 后执行 `Flash -> Download`。
-
-固件测试工具：
-
-```bash
-python3 ~/ARX/das_finger_controller_mcu/tools/finger_test.py --port /dev/ttyUSB0 demo
-```
-
-完整说明见 `das_finger_controller_mcu/USAGE.md`。
 
 ## 常见注意事项
 
@@ -287,6 +251,5 @@ python3 ~/ARX/das_finger_controller_mcu/tools/finger_test.py --port /dev/ttyUSB0
 - `ARX_X5/py/arx_x5_python/README.md`：机械臂 Python SDK 编译与运行说明。
 - `finger_sdk_python/gen_con_sdk_python_release-master/README_CN.md`：灵巧夹爪 SDK 中文说明。
 - `ARX_X5/ARX_VR_SDK/readme.md`：VR 遥操作使用说明。
-- `das_finger_controller_mcu/USAGE.md`：DAS 夹爪控制器 MCU 固件说明。
 - `ARX_X5/旧版-readme/`：旧版手册和 PDF 文档。
 
